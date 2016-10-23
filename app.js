@@ -15,6 +15,17 @@ app.use(bodyParser.json());
 // Routes
 app.use('/api', require('./routes/api'));
 
+// calling index.html file
+app.get('/', function(req,res){
+    res.sendfile(__dirname + '/index.html');
+});
+
+//calling the js files
+app.use('/js', express.static(__dirname + '/public/js'));
+
+//calling the npm repository
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
+
 // Start Server
 var port = Number(process.env.PORT || 3000 );
 app.listen(port);
