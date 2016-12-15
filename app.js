@@ -20,6 +20,16 @@ app.get('/', function(req,res){
     res.sendfile(__dirname + '/index.html');
 });
 
+// calling register.html file
+app.get('/api/register', function(req,res){
+   var name = req.body.name;
+   var email = req.body.email;
+   var username = req.body.username;
+   var password = req.body.password;
+   console.log(name);
+    console.log(password);
+});
+
 //calling the js files
 app.use('/js', express.static(__dirname + '/public/js'));
 
